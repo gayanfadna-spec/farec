@@ -1,8 +1,8 @@
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { ArrowRight, Microscope, Factory, HeartPulse, Sparkles, Sprout, TestTube2, Laptop, Network } from "lucide-react";
+import { ArrowRight, Microscope, Factory, HeartPulse, Sparkles, Sprout, TestTube2, Network } from "lucide-react";
 
 
 

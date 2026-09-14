@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -12,21 +11,21 @@ import { ArrowRight, Calendar } from "lucide-react";
 const MOCK_NEWS = [
   {
     id: "1",
-  
+    title: "MOU with University of Ruhuna",
     date: "September 10, 2026",
     excerpt: "We are thrilled to announce a comprehensive MOU with the University of Ruhuna to expand our clinical trials on metabolic syndromes...",
     category: "Press Release"
   },
   {
     id: "2",
-  
+    title: "40% Higher Yield in Extraction",
     date: "August 24, 2026",
     excerpt: "Our recent lab results show a 40% higher yield of asiaticoside using our proprietary new extraction protocol...",
     category: "Research Update"
   },
   {
     id: "3",
-  
+    title: "Seminar: Standardizing Formulations",
     date: "August 05, 2026",
     excerpt: "Join our lead researchers for a deep dive into the methodology of standardizing complex polyherbal formulations.",
     category: "Event"

@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Beaker, Factory, GraduationCap, Lightbulb, FileSearch } from "lucide-react";
+import { ArrowRight, Factory, GraduationCap, Lightbulb, FileSearch } from "lucide-react";
 
 export default function Home() {
   return (

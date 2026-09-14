@@ -1,6 +1,4 @@
-
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2, Target, Eye, ShieldCheck } from "lucide-react";
+import { Target, Eye, ShieldCheck } from "lucide-react";
 
 
 
