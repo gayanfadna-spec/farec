@@ -19,7 +19,7 @@ export default function Home() {
               <span className="flex h-2 w-2 rounded-full bg-primary"></span>
               <span>FAREC: Fadna Research Center</span>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif font-bold text-foreground leading-tight text-balance">
               Transforming traditional <span className="text-primary italic">Ayurvedic</span> knowledge into scientifically validated <span className="text-secondary">wellness solutions</span>.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
