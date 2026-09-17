@@ -1,9 +1,38 @@
-import { Target, Eye, ShieldCheck } from "lucide-react";
+import { Target, Eye, ShieldCheck, Users, Award } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-
-
-
-
+const TEAM_MEMBERS = [
+  {
+    name: "Dr. D.B.T. Wijeratne",
+    role: "Food Science & Nutrition",
+    bio: "PhD, University of Illinois (Food Science & Nutrition). 20+ years in food security leadership including roles at the Ministry of Agriculture and FAO.",
+  },
+  {
+    name: "Prof. Sameera R. Samarakoon",
+    role: "Cell & Molecular Biology",
+    bio: "Professor of Cell & Molecular Biology, University of Colombo. Pioneer in natural anticancer therapies. 75+ peer-reviewed publications.",
+  },
+  {
+    name: "Prof. Ravi Dissanayaka",
+    role: "Marketing & Strategy",
+    bio: "Professor of Marketing, University of Kelaniya. PhD from Taylor's University. 120+ research publications. Led the \"Brand Sri Lanka\" initiative.",
+  },
+  {
+    name: "Dr. G.P.L. Supulchandra",
+    role: "Ayurveda & Bioinformatics",
+    bio: "BAMS (University of Colombo), Masters in Ayurveda Hospital Management. Pursuing PhD & MSc in Bioinformatics. Key driver of product innovation.",
+  },
+  {
+    name: "Dr. Heshani Wathsala",
+    role: "Ayurveda & Management",
+    bio: "BAMS & Masters in Hospital Management. Bridges traditional Ayurvedic wellness with modern business strategy and HR development.",
+  },
+  {
+    name: "Dr. Srimal Dilmika",
+    role: "Integrative Wellness & Exports",
+    bio: "Licensed Ayurveda physician with expertise in integrative wellness, yoga, and acupuncture. Manages export operations and international collaborations.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -112,6 +141,56 @@ export default function AboutPage() {
           <p className="text-lg text-muted-foreground font-medium">
             Our long-term goal is to position Sri Lanka as a globally recognized center for scientifically validated natural product innovation.
           </p>
+        </div>
+      </section>
+
+      {/* Multidisciplinary Team */}
+      <section className="py-20 bg-background border-t border-border/40">
+        <div className="container px-4 md:px-8 mx-auto">
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+              <Users className="h-4 w-4" />
+              <span>Our Experts</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold">Our Multidisciplinary Team</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed text-balance">
+              Our multidisciplinary team brings together decades of expertise in Ayurvedic medicine, cell biology, food science, and marketing — ensuring every product is both scientifically sound and deeply rooted in tradition.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {TEAM_MEMBERS.map((member, index) => {
+              const cleaned = member.name.replace(/(Dr\.|Prof\.)\s*/g, "").trim();
+              const parts = cleaned.split(/\s+/).filter(Boolean);
+              const firstChar = parts[0]?.replace(/[^a-zA-Z]/g, "")[0] || "";
+              const lastChar = parts[parts.length - 1]?.replace(/[^a-zA-Z]/g, "")[0] || "";
+              const initials = (firstChar + lastChar).toUpperCase() || "DR";
+
+              return (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/60 hover:border-primary/40 flex flex-col justify-between">
+                  <CardHeader className="space-y-3 pb-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-serif font-bold text-base border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shrink-0">
+                        {initials}
+                      </div>
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/25 flex items-center gap-1.5 text-right">
+                        <Award className="h-3.5 w-3.5 text-primary shrink-0" />
+                        {member.role}
+                      </span>
+                    </div>
+                    <CardTitle className="text-xl pt-1 group-hover:text-primary transition-colors">
+                      {member.name}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>
