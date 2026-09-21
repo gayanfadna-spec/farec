@@ -12,6 +12,7 @@ export default function Header() {
           <img src="/images/farec-logo.png" alt="FAREC Logo" className="h-10 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          <Link to="/" className="transition-colors hover:text-primary">Home</Link>
           <Link to="/about" className="transition-colors hover:text-primary">About Us</Link>
           <Link to="/research" className="transition-colors hover:text-primary">Research</Link>
           <Link to="/education" className="transition-colors hover:text-primary">Education</Link>
@@ -37,6 +38,7 @@ export default function Header() {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden border-t bg-background px-4 py-4 space-y-4 shadow-lg absolute w-full left-0 flex flex-col">
+          <Link to="/" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           <Link to="/about" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
           <Link to="/research" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Research</Link>
           <Link to="/education" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Education</Link>

@@ -9,20 +9,28 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-primary/5 py-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent z-10" />
-          <div className="w-full h-full bg-[url('/images/hero_bg.jpg')] bg-cover bg-center opacity-40" />
+          {/* Overlay removed so video shows completely clearly */}
+          <div className="absolute inset-0 bg-black/10 z-10 pointer-events-none" />
+          {/* YouTube video with parameters to hide UI elements and subtitles */}
+          <iframe 
+            className="w-full h-[120%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 pointer-events-none scale-[1.2]"
+            src="https://www.youtube.com/embed/ErD22Fa5MRc?autoplay=1&mute=1&loop=1&controls=0&playlist=ErD22Fa5MRc&modestbranding=1&rel=0&iv_load_policy=3&cc_load_policy=0" 
+            title="Background Video" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+          ></iframe>
         </div>
         
         <div className="container relative z-20 px-4 md:px-8">
           <div className="max-w-4xl space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center space-x-2 bg-background/80 backdrop-blur-sm text-primary px-3 py-1 rounded-full text-sm font-medium shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-primary"></span>
               <span>FAREC: Fadna Research Center</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif font-bold text-foreground leading-tight text-balance">
-              Transforming traditional <span className="text-primary italic">Ayurvedic</span> knowledge into scientifically validated <span className="text-secondary">wellness solutions</span>.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif font-bold text-white drop-shadow-xl leading-tight text-balance">
+              Transforming traditional <span className="text-primary-foreground italic">Ayurvedic</span> knowledge into scientifically validated <span className="text-primary-foreground">wellness solutions</span>.
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-white/95 drop-shadow-lg max-w-2xl leading-relaxed font-medium">
               Operating at the intersection of nature, science, technology, and commercialization to develop innovative products for the nutraceutical, cosmeceutical, and healthcare industries.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
