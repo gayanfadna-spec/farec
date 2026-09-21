@@ -14,7 +14,7 @@ export default function Home() {
           {/* YouTube video with parameters to hide UI elements and subtitles */}
           <iframe 
             className="w-full h-[120%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 pointer-events-none scale-[1.2]"
-            src="https://www.youtube.com/embed/ErD22Fa5MRc?autoplay=1&mute=1&loop=1&controls=0&playlist=ErD22Fa5MRc&modestbranding=1&rel=0&iv_load_policy=3&cc_load_policy=0" 
+            src="https://www.youtube.com/embed/ErD22Fa5MRc?autoplay=1&mute=1&loop=1&controls=0&playlist=ErD22Fa5MRc&modestbranding=1&rel=0&iv_load_policy=3&cc_load_policy=0&playsinline=1&disablekb=1&fs=0" 
             title="Background Video" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen
