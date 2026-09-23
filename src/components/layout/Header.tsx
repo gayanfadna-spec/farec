@@ -1,34 +1,68 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+
+const NAV_ITEMS = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Research", path: "/research" },
+  { name: "Education", path: "/education" },
+  { name: "Partnerships", path: "/partnerships" },
+  { name: "News", path: "/news" },
+];
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
-        <Link to="/" className="flex items-center">
-          <img src="/images/farec-logo.png" alt="FAREC Logo" className="h-10 w-auto" />
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 transition-all duration-200">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
+        <Link to="/" className="flex items-center gap-3 group">
+          <img 
+            src="/images/farec-logo.png" 
+            alt="FAREC Logo" 
+            className="h-11 w-auto transition-transform duration-300 group-hover:scale-105" 
+          />
         </Link>
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          <Link to="/" className="transition-colors hover:text-primary">Home</Link>
-          <Link to="/about" className="transition-colors hover:text-primary">About Us</Link>
-          <Link to="/research" className="transition-colors hover:text-primary">Research</Link>
-          <Link to="/education" className="transition-colors hover:text-primary">Education</Link>
-          <Link to="/partnerships" className="transition-colors hover:text-primary">Partnerships</Link>
-          <Link to="/news" className="transition-colors hover:text-primary">News</Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium">
+          {NAV_ITEMS.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`relative py-1 transition-all duration-200 ${
+                  isActive
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item.name}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 h-0.5 w-full rounded-full bg-secondary transition-all" />
+                )}
+              </Link>
+            );
+          })}
         </nav>
+
+        {/* Action Button & Mobile Toggle */}
         <div className="flex items-center space-x-4">
           <Link
             to="/contact"
-            className="hidden md:inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+            className="hidden sm:inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm shadow-primary/20 transition-all duration-200 hover:bg-primary/90 hover:shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
           >
-            Contact
+            <span>Collaborate</span>
+            <ArrowUpRight className="h-4 w-4 opacity-70" />
           </Link>
+
           <button 
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 rounded-lg text-foreground hover:bg-muted/60 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -37,14 +71,35 @@ export default function Header() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t bg-background px-4 py-4 space-y-4 shadow-lg absolute w-full left-0 flex flex-col">
-          <Link to="/" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <Link to="/about" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-          <Link to="/research" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Research</Link>
-          <Link to="/education" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Education</Link>
-          <Link to="/partnerships" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Partnerships</Link>
-          <Link to="/news" className="block py-2 text-sm font-medium hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>News</Link>
-          <Link to="/contact" className="block py-2 text-sm font-medium text-primary hover:text-primary/80" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+        <div className="lg:hidden border-b border-border/60 bg-background/95 backdrop-blur-xl px-6 py-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-200 flex flex-col">
+          {NAV_ITEMS.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-primary/10 text-primary font-semibold"
+                    : "text-foreground/80 hover:bg-muted/50 hover:text-foreground"
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span>{item.name}</span>
+                {isActive && <span className="h-1.5 w-1.5 rounded-full bg-primary" />}
+              </Link>
+            );
+          })}
+          <div className="pt-3 border-t border-border/40">
+            <Link
+              to="/contact"
+              className="flex w-full items-center justify-center gap-1.5 py-3 rounded-xl bg-primary text-primary-foreground font-medium shadow transition-all hover:bg-primary/90"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <span>Contact Us</span>
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       )}
     </header>

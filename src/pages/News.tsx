@@ -34,18 +34,29 @@ const MOCK_NEWS = [
 
 export default function NewsPage() {
   return (
-    <div className="flex flex-col min-h-screen pt-16">
-      <section className="relative py-20 md:py-32 bg-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary via-transparent to-transparent" />
+    <div className="flex flex-col min-h-screen">
+      {/* Header Section */}
+      <section className="relative py-24 md:py-36 overflow-hidden bg-slate-950 text-white">
+        {/* Background Image with Dark/Navy Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/news_insights.jpg"
+            alt="News and Insights"
+            className="w-full h-full object-cover object-center scale-105"
+          />
+          <div className="absolute inset-0 bg-slate-950/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-slate-950/20 to-slate-950/40" />
+        </div>
+
         <div className="container relative z-10 px-4 md:px-8 mx-auto text-center max-w-4xl space-y-6">
-          <div className="inline-flex items-center space-x-2 bg-primary-foreground/10 px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm border border-primary-foreground/20 mb-2">
-            <span className="flex h-2 w-2 rounded-full bg-secondary"></span>
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/20 text-amber-300">
+            <span className="flex h-2 w-2 rounded-full bg-amber-400"></span>
             <span>Latest Updates</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-balance mx-auto">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-white drop-shadow-lg text-balance mx-auto">
             News & Insights
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/80 font-light leading-relaxed max-w-2xl mx-auto text-balance">
+          <p className="text-lg md:text-xl text-white/95 drop-shadow-md font-light leading-relaxed max-w-2xl mx-auto text-balance">
             Stay updated with the latest breakthroughs, publications, and events from our research center.
           </p>
         </div>
