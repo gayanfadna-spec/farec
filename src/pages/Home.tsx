@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[calc(100vh-5rem)] flex items-center overflow-hidden bg-slate-950 py-12 md:py-16">
+      <section className="relative w-full min-h-[calc(100vh-5rem)] flex items-center overflow-hidden bg-slate-950 py-6 sm:py-8 md:py-12 lg:py-16">
         <div className="absolute inset-0 z-0">
-          {/* YouTube video wrapper simulating object-cover with zero black bars */}
+          {/* YouTube video wrapper simulating object-cover across all aspect ratios */}
           <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
             <iframe 
               className="absolute top-1/2 left-1/2 pointer-events-none border-0"
@@ -37,22 +37,25 @@ export default function Home() {
             ></iframe>
           </div>
 
-          {/* Seamless full-bleed horizontal gradient overlay for balanced contrast and video visibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/20 z-10 pointer-events-none" />
+          {/* Responsive gradient overlay: vertical fade on mobile, horizontal fade on tablet & desktop */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950/60 md:bg-gradient-to-r md:from-slate-950/90 md:via-slate-950/65 md:to-slate-950/20 z-10 pointer-events-none" />
         </div>
         
-        {/* Hero Content - Clean, balanced, no clipping box */}
-        <div className="container relative z-20 px-4 md:px-8 mx-auto">
-          <div className="max-w-2xl lg:max-w-3xl space-y-5 text-white">
+        {/* Hero Content - Fluidly scales with screen size */}
+        <div className="container relative z-20 px-4 sm:px-6 md:px-8 mx-auto">
+          <div className="max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 text-white">
             
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide text-amber-300">
-              <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide text-amber-300">
+              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-amber-400" />
               <span>FAREC: Fadna Research Center</span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-[1.2] text-balance drop-shadow-md">
+            {/* Headline with fluid scaling */}
+            <h1 
+              className="font-serif font-bold text-white leading-[1.2] text-balance drop-shadow-md"
+              style={{ fontSize: "clamp(1.65rem, 3.2vw + 0.6rem, 3.25rem)" }}
+            >
               Transforming traditional{" "}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">
                 Ayurvedic
@@ -63,41 +66,44 @@ export default function Home() {
               </span>.
             </h1>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-xl leading-relaxed font-light drop-shadow">
+            {/* Description with fluid scaling */}
+            <p 
+              className="text-white/90 max-w-xl lg:max-w-2xl leading-relaxed font-light drop-shadow"
+              style={{ fontSize: "clamp(0.85rem, 0.8vw + 0.5rem, 1.125rem)" }}
+            >
               Operating at the intersection of nature, science, technology, and commercialization to engineer innovative products for the nutraceutical, cosmeceutical, and healthcare industries.
             </p>
 
             {/* Dual CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3.5 pt-1 sm:pt-2">
               <Link
                 to="/research"
-                className="inline-flex items-center justify-center gap-2 h-11 px-6 rounded-full bg-primary text-primary-foreground font-medium text-sm shadow-xl shadow-primary/30 transition-all duration-200 hover:bg-primary/90 hover:shadow-2xl hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 h-10 sm:h-11 md:h-12 px-5 sm:px-6 md:px-7 rounded-full bg-primary text-primary-foreground font-medium text-xs sm:text-sm shadow-xl shadow-primary/30 transition-all duration-200 hover:bg-primary/90 hover:shadow-2xl hover:-translate-y-0.5"
               >
                 <span>Explore Capabilities</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white text-sm font-medium backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center h-10 sm:h-11 md:h-12 px-5 sm:px-6 md:px-7 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xs sm:text-sm font-medium backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
               >
                 Collaborate With Us
               </Link>
             </div>
 
             {/* Credibility Metrics Strip */}
-            <div className="pt-5 border-t border-white/20 grid grid-cols-3 gap-6 max-w-lg text-left">
+            <div className="pt-3 sm:pt-4 md:pt-5 border-t border-white/20 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg text-left">
               <div>
-                <p className="text-xl sm:text-2xl font-bold font-serif text-amber-300">75+</p>
-                <p className="text-xs text-white/75 mt-0.5">Peer-Reviewed Papers</p>
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-serif text-amber-300">75+</p>
+                <p className="text-[10px] sm:text-xs text-white/75 mt-0.5">Peer-Reviewed Papers</p>
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-bold font-serif text-amber-300">20+ Yrs</p>
-                <p className="text-xs text-white/75 mt-0.5">Scientific Leadership</p>
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-serif text-amber-300">20+ Yrs</p>
+                <p className="text-[10px] sm:text-xs text-white/75 mt-0.5">Scientific Leadership</p>
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-bold font-serif text-amber-300">100%</p>
-                <p className="text-xs text-white/75 mt-0.5">Evidence-Backed</p>
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-serif text-amber-300">100%</p>
+                <p className="text-[10px] sm:text-xs text-white/75 mt-0.5">Evidence-Backed</p>
               </div>
             </div>
 
