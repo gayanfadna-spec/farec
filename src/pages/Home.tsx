@@ -17,11 +17,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden bg-slate-950 py-8 md:py-12">
+      <section className="relative w-full min-h-[calc(100vh-5rem)] flex items-center overflow-hidden bg-slate-950 py-12 md:py-16">
         <div className="absolute inset-0 z-0">
-          {/* Subtle dark tint to harmonize video with luxury UI */}
-          <div className="absolute inset-0 bg-black/25 z-10 pointer-events-none" />
-          
           {/* YouTube video wrapper simulating object-cover with zero black bars */}
           <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
             <iframe 
@@ -31,7 +28,7 @@ export default function Home() {
                 height: "56.25vw",
                 minWidth: "100%",
                 minHeight: "100%",
-                transform: "translate(-50%, -50%) scale(1.35)",
+                transform: "translate(-50%, -50%) scale(1.45)",
               }}
               src="https://www.youtube.com/embed/ErD22Fa5MRc?autoplay=1&mute=1&loop=1&controls=0&playlist=ErD22Fa5MRc&modestbranding=1&rel=0&iv_load_policy=3&cc_load_policy=0&playsinline=1&disablekb=1&fs=0&vq=hd1080" 
               title="Background Video" 
@@ -39,20 +36,23 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </div>
+
+          {/* Seamless full-bleed horizontal gradient overlay for balanced contrast and video visibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/20 z-10 pointer-events-none" />
         </div>
         
-        {/* Hero Content with Ambient Glassmorphism */}
+        {/* Hero Content - Clean, balanced, no clipping box */}
         <div className="container relative z-20 px-4 md:px-8 mx-auto">
-          <div className="max-w-2xl mx-auto md:mx-0 backdrop-blur-md bg-slate-950/50 border border-white/20 p-5 sm:p-7 md:p-8 rounded-2xl shadow-2xl text-white space-y-3.5 sm:space-y-4">
+          <div className="max-w-2xl lg:max-w-3xl space-y-5 text-white">
             
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-amber-300">
-              <Sparkles className="h-3 w-3 text-amber-400" />
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide text-amber-300">
+              <Sparkles className="h-3.5 w-3.5 text-amber-400" />
               <span>FAREC: Fadna Research Center</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.35rem] font-serif font-bold text-white leading-[1.25] text-balance">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-[1.2] text-balance drop-shadow-md">
               Transforming traditional{" "}
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">
                 Ayurvedic
@@ -64,40 +64,40 @@ export default function Home() {
             </h1>
 
             {/* Description */}
-            <p className="text-xs sm:text-sm md:text-base text-white/90 max-w-xl leading-relaxed font-light">
+            <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-xl leading-relaxed font-light drop-shadow">
               Operating at the intersection of nature, science, technology, and commercialization to engineer innovative products for the nutraceutical, cosmeceutical, and healthcare industries.
             </p>
 
             {/* Dual CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-1">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Link
                 to="/research"
-                className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-full bg-primary text-primary-foreground font-medium text-xs sm:text-sm shadow-lg shadow-primary/30 transition-all duration-200 hover:bg-primary/90 hover:shadow-xl hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 h-11 px-6 rounded-full bg-primary text-primary-foreground font-medium text-sm shadow-xl shadow-primary/30 transition-all duration-200 hover:bg-primary/90 hover:shadow-2xl hover:-translate-y-0.5"
               >
                 <span>Explore Capabilities</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center h-10 px-5 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xs sm:text-sm font-medium backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white text-sm font-medium backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
               >
                 Collaborate With Us
               </Link>
             </div>
 
             {/* Credibility Metrics Strip */}
-            <div className="pt-3 sm:pt-4 border-t border-white/15 grid grid-cols-3 gap-3 text-center sm:text-left">
+            <div className="pt-5 border-t border-white/20 grid grid-cols-3 gap-6 max-w-lg text-left">
               <div>
-                <p className="text-base sm:text-lg md:text-xl font-bold font-serif text-amber-300">75+</p>
-                <p className="text-[11px] text-white/70">Peer-Reviewed Papers</p>
+                <p className="text-xl sm:text-2xl font-bold font-serif text-amber-300">75+</p>
+                <p className="text-xs text-white/75 mt-0.5">Peer-Reviewed Papers</p>
               </div>
               <div>
-                <p className="text-base sm:text-lg md:text-xl font-bold font-serif text-amber-300">20+ Yrs</p>
-                <p className="text-[11px] text-white/70">Scientific Leadership</p>
+                <p className="text-xl sm:text-2xl font-bold font-serif text-amber-300">20+ Yrs</p>
+                <p className="text-xs text-white/75 mt-0.5">Scientific Leadership</p>
               </div>
               <div>
-                <p className="text-base sm:text-lg md:text-xl font-bold font-serif text-amber-300">100%</p>
-                <p className="text-[11px] text-white/70">Evidence-Backed</p>
+                <p className="text-xl sm:text-2xl font-bold font-serif text-amber-300">100%</p>
+                <p className="text-xs text-white/75 mt-0.5">Evidence-Backed</p>
               </div>
             </div>
 
