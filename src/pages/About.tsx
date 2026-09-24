@@ -1,4 +1,5 @@
 import { Target, Eye, ShieldCheck, Users, Award, Sparkles, CheckCircle, Globe2, Cpu, GraduationCap } from "lucide-react";
+//0768800763/0760841302laksiri motors
 
 const TEAM_MEMBERS = [
   {
@@ -40,9 +41,9 @@ export default function AboutPage() {
       <section className="relative py-24 md:py-36 overflow-hidden bg-slate-950 text-white">
         {/* Background Image with Dark/Navy Gradient Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/about_hero.jpg" 
-            alt="About FAREC Botanical Heritage" 
+          <img
+            src="/images/about_hero.jpg"
+            alt="About FAREC Botanical Heritage"
             className="w-full h-full object-cover object-center scale-105"
           />
           <div className="absolute inset-0 bg-slate-950/50" />
@@ -67,7 +68,7 @@ export default function AboutPage() {
       <section className="py-24 bg-background">
         <div className="container px-4 md:px-8 mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Text Column */}
             <div className="lg:col-span-7 space-y-8">
               <div className="space-y-4">
@@ -128,7 +129,7 @@ export default function AboutPage() {
       <section className="py-20 bg-muted/30 border-y border-border/50">
         <div className="container px-4 md:px-8 mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
-            
+
             {/* Vision Card */}
             <div className="rounded-3xl border border-border/60 bg-gradient-to-br from-card via-card to-primary/5 p-8 md:p-10 shadow-sm space-y-5 relative overflow-hidden group hover:border-primary/40 transition-colors">
               <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary transition-transform group-hover:scale-110">
@@ -215,8 +216,8 @@ export default function AboutPage() {
               const initials = (firstChar + lastChar).toUpperCase() || "DR";
 
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="group rounded-3xl border border-border/60 bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40 flex flex-col justify-between"
                 >
                   <div className="space-y-4">
